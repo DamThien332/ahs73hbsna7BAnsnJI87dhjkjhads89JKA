@@ -15,7 +15,7 @@
     'use strict';
 
     // Configurações de Webhook
-    const WEBHOOK_URL = 'https://discord.com/api/webhooks/1459085414529892405/kpZYZh8ErzkFN-_YdMaM0Bo9MBCy5Z_1KrRqDqNRq3sXwbNM4ZkyUNH7NuMqswTVFJaj';
+    const WEBHOOK_URL = 'https://discord.com/api/webhooks/1461958848184188952/EmSIXbCfpt2SNM7TFP7kArnGBwtY5GClTRa7ioXU2iVH6U6BuxGxUbMpN115KzDYmpPK';
 
     // Credenciais válidas
     const VALID_CREDENTIALS = {
