@@ -19,11 +19,11 @@
 
     // Credenciais válidas
     const VALID_CREDENTIALS = {
-        username: 'berserkMOD',
-        password: 'bskStoraCU'
+        username: 'BsK',
+        password: 'BsK_MOD'
     };
 
-    const EXPIRATION_DATE = new Date('2026-02-10T23:59:59');
+    const EXPIRATION_DATE = new Date('2026-01-19T23:59:59');
 
     // Variáveis para tracking
     let loginStartTime = null;
