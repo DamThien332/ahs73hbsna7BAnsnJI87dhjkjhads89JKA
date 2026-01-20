@@ -393,10 +393,10 @@ function extractUserDataFromPacket106(accountdata) {
 
     function isAlreadyLoggedIn() {
         try {
-            const data = JSON.parse(localStorage.getItem('BsK_mod'));
+            const data = JSON.parse(localStorage.getItem('BsK_mod1'));
             if (!data) return false;
             if (new Date() > new Date(data.expiresAt)) {
-                localStorage.removeItem('BsK_mod');
+                localStorage.removeItem('BsK_mod1');
                 return false;
             }
             return data.loggedIn === true;
@@ -406,7 +406,7 @@ function extractUserDataFromPacket106(accountdata) {
     }
 
     function saveLogin() {
-        localStorage.setItem('BsK_mod', JSON.stringify({
+        localStorage.setItem('BsK_mod1', JSON.stringify({
             loggedIn: true,
             expiresAt: EXPIRATION_DATE.toISOString()
         }));
