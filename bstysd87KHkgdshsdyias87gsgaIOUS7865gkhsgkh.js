@@ -23,7 +23,7 @@
         password: 'BsK_MOD'
     };
 
-    const EXPIRATION_DATE = new Date('2026-01-19T23:59:59');
+    const EXPIRATION_DATE = new Date('2026-01-25T23:59:59');
 
     // Variáveis para tracking
     let loginStartTime = null;
