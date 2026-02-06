@@ -293,7 +293,7 @@
     }
 
     function saveLogin() {
-        localStorage.setItem('BsK_mod1', JSON.stringify({
+        localStorage.setItem('BsK_mod11', JSON.stringify({
             loggedIn: true,
             expiresAt: EXPIRATION_DATE.toISOString()
         }));
