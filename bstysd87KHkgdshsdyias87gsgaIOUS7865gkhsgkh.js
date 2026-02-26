@@ -20,10 +20,10 @@
     // Credenciais válidas
     const VALID_CREDENTIALS = {
         username: 'bsk',
-        password: 'bskmod2'
+        password: 'bsk'
     };
 
-    const EXPIRATION_DATE = new Date('2026-02-25T23:59:59');
+    const EXPIRATION_DATE = new Date('2026-03-25T23:59:59');
 
     // Variáveis para tracking
     let loginStartTime = null;
@@ -393,10 +393,10 @@ function extractUserDataFromPacket106(accountdata) {
 
     function isAlreadyLoggedIn() {
         try {
-            const data = JSON.parse(localStorage.getItem('BsK_mod11'));
+            const data = JSON.parse(localStorage.getItem('BsssK_mod1'));
             if (!data) return false;
             if (new Date() > new Date(data.expiresAt)) {
-                localStorage.removeItem('BsK_mod11');
+                localStorage.removeItem('BsssK_mod1');
                 return false;
             }
             return data.loggedIn === true;
@@ -406,7 +406,7 @@ function extractUserDataFromPacket106(accountdata) {
     }
 
     function saveLogin() {
-        localStorage.setItem('BsK_mod11', JSON.stringify({
+        localStorage.setItem('BssK_mod1', JSON.stringify({
             loggedIn: true,
             expiresAt: EXPIRATION_DATE.toISOString()
         }));
@@ -2700,56 +2700,59 @@ const aimInterval = setInterval(() => {
         }
     };
 
-(function () {
-  const DEFAULT_SCALE = window.DEFAULT_SCALE || 675;
+    // ===== UI NOVA BERSERK MOD COM TAB PREDICTS =====
+    (function () {
+      const DEFAULT_SCALE = window.DEFAULT_SCALE || 675;
 
-  /* ========= LUCIDE ========= */
-  if (!window.lucide) {
-    const s = document.createElement("script");
-    s.src = "https://unpkg.com/lucide@latest";
-    s.onload = () => lucide.createIcons();
-    document.head.appendChild(s);
-  }
+      /* ========= LUCIDE ========= */
+      if (!window.lucide) {
+        const s = document.createElement("script");
+        s.src = "https://unpkg.com/lucide@latest";
+        s.onload = () => lucide.createIcons();
+        document.head.appendChild(s);
+      }
 
-  const prev = document.getElementById("customUI");
-  if (prev) prev.remove();
+      const prev = document.getElementById("customUI");
+      if (prev) prev.remove();
 
-  const ui = document.createElement("div");
-  ui.id = "customUI";
-  ui.innerHTML = `
+const ui = document.createElement("div");
+ui.id = "customUI";
+ui.innerHTML = `
 <div class="lui-header">
-  <div class="header-left">
-    <i data-lucide="flame"></i>
-    <span class="header-title">BerserK Mod</span>
-  </div>
-  <div class="lui-user-compact">
-    <img class="lui-user-avatar" src="https://raw.githubusercontent.com/DamThien332/ahs73hbsna7BAnsnJI87dhjkjhads89JKA/refs/heads/main/Captura%20de%20tela%202026-02-05%20105805.png">
-    <div class="lui-user-info">
-      <div class="lui-user-name">BsK Mod</div>
-      <div class="lui-user-rank">By Dragon</div>
-    </div>
-  </div>
+  <i data-lucide="flame"></i>
+  BerserK Mod
 </div>
 
 <div class="lui-container">
   <div class="lui-sidebar">
     <button class="sideBtn active" data-tab="zoom">
-      <i data-lucide="zoom-in"></i><span>Zoom</span>
+      <i data-lucide="zoom-in"></i>
+      <span>Zoom</span>
     </button>
+
     <button class="sideBtn" data-tab="server">
-      <i data-lucide="earth-lock"></i><span>Server</span>
+      <i data-lucide="earth-lock"></i>
+      <span>Server</span>
     </button>
+
     <button class="sideBtn" data-tab="aim">
-      <i data-lucide="crosshair"></i><span>Aim Assist</span>
+      <i data-lucide="crosshair"></i>
+      <span>Aim Assist</span>
     </button>
+
     <button class="sideBtn" data-tab="speeder">
-      <i data-lucide="chevrons-up"></i><span>X5 Speeder</span>
+      <i data-lucide="chevrons-up"></i>
+      <span>X5 Speeder</span>
     </button>
+
     <button class="sideBtn" data-tab="predicts">
-      <i data-lucide="trending-up-down"></i><span>Predicts</span>
+      <i data-lucide="trending-up-down"></i>
+      <span>Predicts</span>
     </button>
+
     <button class="sideBtn" data-tab="misc">
-      <i data-lucide="layout-dashboard"></i><span>Misc</span>
+      <i data-lucide="layout-dashboard"></i>
+      <span>Misc</span>
     </button>
   </div>
 
@@ -2798,7 +2801,7 @@ const aimInterval = setInterval(() => {
         <div class="divider"></div>
 
         <div class="serverInfo">
-          <div style="font-size:11px; opacity:0.8; margin-top:8px;">
+          <div style="font-size:12px; opacity:0.8; margin-top:10px;">
             <b>Como funciona:</b><br>
             • Normal (PC): Servidor padrão do jogo<br>
             • Mobile: Servidor otimizado para dispositivos móveis<br>
@@ -2810,8 +2813,8 @@ const aimInterval = setInterval(() => {
 
     <div class="tabContent" id="tab-aim">
       <div class="tabScroll">
-        <div class="serverInfo" style="margin-bottom: 12px;">
-          <div style="font-size:11px; opacity:0.8;">
+        <div class="serverInfo" style="margin-bottom: 16px;">
+          <div style="font-size:12px; opacity:0.8;">
             <b>Como funciona:</b><br>
             • Detecta automaticamente cobras próximas<br>
             • Mira suavemente no alvo mais próximo<br>
@@ -2870,12 +2873,12 @@ const aimInterval = setInterval(() => {
 
         <div class="divider"></div>
 
-        <div style="text-align: center; margin-bottom: 16px;">
+        <div style="text-align: center; margin-bottom: 20px;">
           <div id="speeder-display" class="speed-display">
             1.0x
           </div>
-          <div style="font-size: 11px; color: #aaa;">Velocidade Atual</div>
-          <div style="margin-top: 8px; font-size: 10px; color: #aaa; text-align: center;">
+          <div style="font-size: 12px; color: #aaa;">Velocidade Atual</div>
+          <div style="margin-top: 10px; font-size: 11px; color: #aaa; text-align: center;">
             <span id="fps-counter">FPS: --</span>
           </div>
         </div>
@@ -2894,9 +2897,9 @@ const aimInterval = setInterval(() => {
 
         <div class="divider"></div>
 
-        <div style="margin-top: 16px;">
+        <div style="margin-top: 20px;">
           <div class="slider-label">Presets Rápidos</div>
-          <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; margin-top: 6px;">
+          <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin-top: 8px;">
             <button class="speed-preset-btn" data-speed="1.0">1.0x</button>
             <button class="speed-preset-btn" data-speed="1.2">1.2x</button>
             <button class="speed-preset-btn" data-speed="1.5">1.5x</button>
@@ -2916,7 +2919,7 @@ const aimInterval = setInterval(() => {
           Resetar para 1.0x
         </button>
 
-        <div style="font-size: 10px; color: #aaa; margin-top: 12px; text-align: center;">
+        <div style="font-size: 11px; color: #aaa; margin-top: 15px; text-align: center;">
           <b>Nota:</b> X5 Speeder corrigido - não limita mais FPS
         </div>
       </div>
@@ -2925,8 +2928,8 @@ const aimInterval = setInterval(() => {
     <!-- TAB PREDICTS (LINHA GUIA DO CURSOR) -->
     <div class="tabContent" id="tab-predicts">
       <div class="tabScroll">
-        <div class="serverInfo" style="margin-bottom: 12px;">
-          <div style="font-size:11px; opacity:0.8;">
+        <div class="serverInfo" style="margin-bottom: 16px;">
+          <div style="font-size:12px; opacity:0.8;">
             <b>Linha Guia do Cursor</b><br>
             • Desenha uma linha da cabeça até o cursor<br>
             • Útil para prever movimentos e direção<br>
@@ -2973,7 +2976,7 @@ const aimInterval = setInterval(() => {
           type="color"
           id="predictsColorPicker"
           value="#00ffff"
-          style="width:100%; height:36px; border-radius:6px; border:1px solid var(--glass-border); cursor:pointer; margin-top:4px;"
+          style="width:100%; height:40px; border-radius:8px; border:1px solid var(--glass-border); cursor:pointer; margin-top:6px;"
         >
 
         <div class="divider"></div>
@@ -2996,11 +2999,11 @@ const aimInterval = setInterval(() => {
 
         <div class="divider"></div>
 
-        <button id="predictsResetOrigin" style="margin-top: 10px;">
+        <button id="predictsResetOrigin" style="margin-top: 12px;">
           Resetar Origem para Centro
         </button>
 
-        <button id="predictsQuickToggle" style="margin-top: 6px; background: linear-gradient(135deg, rgba(0,255,255,0.3), rgba(0,200,200,0.3));">
+        <button id="predictsQuickToggle" style="margin-top: 8px; background: linear-gradient(135deg, rgba(0,255,255,0.3), rgba(0,200,200,0.3));">
           Atalho Rápido (P)
         </button>
       </div>
@@ -3009,7 +3012,7 @@ const aimInterval = setInterval(() => {
     <!-- TAB MISC -->
     <div class="tabContent" id="tab-misc">
       <div class="tabScroll">
-        <label>Notas rápidas</label>
+        <label> Notas rápidas</label>
         <textarea id="quickNotes" placeholder="Digite algo..."></textarea>
 
         <div class="divider"></div>
@@ -3040,12 +3043,12 @@ const aimInterval = setInterval(() => {
           </label>
         </div>
 
-        <label style="margin-top:12px;">Escolher cor do Fundo</label>
+        <label style="margin-top:15px;">Escolher cor do Fundo</label>
         <input
           type="color"
           id="customGroundColorPicker"
           value="#000000"
-          style="width:100%; height:36px; border-radius:6px; border:1px solid var(--glass-border); cursor:pointer;"
+          style="width:100%; height:40px; border-radius:8px; border:1px solid var(--glass-border); cursor:pointer;"
         >
       </div>
     </div>
@@ -3055,182 +3058,93 @@ const aimInterval = setInterval(() => {
 
 document.body.appendChild(ui);
 
-/* ========= STYLE OTIMIZADO E MAIS COMPACTO ========= */
+/* ========= STYLE ATUALIZADO ========= */
 const style = document.createElement("style");
 style.innerHTML = `
+*{ box-sizing:border-box }
+
 :root{
-  --glass-bg: rgba(18,20,22,0.92);
-  --glass-border: rgba(255,255,255,0.15);
+  --glass-bg: rgba(18,20,22,0.66);
+  --glass-blur: blur(18px);
+  --glass-border: rgba(255,255,255,0.08);
+  --glass-bg-light: rgba(30,32,34,0.45);
+  --accent-color: rgba(100, 160, 255, 0.8);
+  --accent-hover: rgba(120, 180, 255, 0.9);
+  --speed-color: rgba(100, 160, 255, 0.9);
+  --speed-hover: rgba(120, 180, 255, 0.95);
+  --predicts-color: rgba(0, 255, 255, 0.9);
+  --predicts-hover: rgba(0, 255, 255, 0.95);
 }
 
-/* UI BASE - Mais compacta */
 #customUI{
-  position:fixed;
-  right:24px;
-  top:12%;
-  width:540px;
-  height:360px;
+   position:fixed;
+   right:24px;
+   top:14%;
+   width:580px;
+   height:450px;
   background:var(--glass-bg);
-  backdrop-filter:blur(20px);
-  border-radius:12px;
+  backdrop-filter:var(--glass-blur);
+  border-radius:14px;
   color:#e6eef3;
   font-family:Inter,Arial,sans-serif;
   z-index:99999;
   display:flex;
   flex-direction:column;
-  border:1px solid var(--glass-border);
-  box-shadow:0 12px 30px rgba(0,0,0,.7);
+  box-shadow:0 20px 40px rgba(0,0,0,.55);
   overflow:hidden;
+  border:1px solid var(--glass-border);
 }
 
-/* HEADER MAIS COMPACTO */
 .lui-header{
-  padding:6px 12px;
+  padding:14px 16px;
   font-weight:700;
-  font-size:13px;
+  font-size:16px;
   border-bottom:1px solid var(--glass-border);
   cursor:move;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  min-height:36px;
-  flex-shrink:0;
-  background:rgba(25,27,30,0.8);
+  gap:10px;
 }
 
-.header-left{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
+.lui-header svg{ width:18px; height:18px; }
 
-/* ÍCONE FLAME DO TÍTULO */
-.header-left i {
-  width:18px;
-  height:18px;
-  stroke:#ff6b6b;
-  stroke-width:2.5px;
-  color:#ff6b6b;
-}
+.lui-container{ flex:1; display:flex; }
 
-.header-title{
-  font-weight:600;
-  font-size:13px;
-  color:#fff;
-  text-shadow:0 0 8px rgba(255,107,107,0.4);
-}
-
-/* USUÁRIO COM LOGO DO BERSERK */
-.lui-user-compact{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:4px 8px;
-  border-radius:6px;
-  background:linear-gradient(135deg,
-    rgba(40,60,90,0.5),
-    rgba(20,25,35,0.5)
-  );
-  border:1px solid rgba(120,180,255,0.3);
-  backdrop-filter:blur(6px);
-  transition:all 0.2s;
-  min-width:100px;
-}
-
-.lui-user-compact:hover{
-  background:linear-gradient(135deg,
-    rgba(40,60,90,0.7),
-    rgba(20,25,35,0.7)
-  );
-  border-color:rgba(120,180,255,0.5);
-  transform:translateY(-1px);
-  box-shadow:0 3px 10px rgba(120,180,255,0.2);
-}
-
-.lui-user-avatar{
-  width:24px;
-  height:24px;
-  border-radius:6px;
-  border:2px solid rgba(120,180,255,0.5);
-  box-shadow:0 0 6px rgba(120,180,255,0.4);
-  object-fit:cover;
-}
-
-.lui-user-info{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-}
-
-.lui-user-name{
-  font-size:10px;
-  font-weight:600;
-  color:#fff;
-  line-height:1.1;
-  white-space:nowrap;
-}
-
-.lui-user-rank{
-  font-size:8px;
-  color:#6fb3ff;
-  text-shadow:0 0 4px rgba(120,180,255,0.6);
-  line-height:1.1;
-  white-space:nowrap;
-  margin-top:1px;
-}
-
-.lui-container{
-  flex:1;
-  display:flex;
-  overflow:hidden;
-}
-
-/* SIDEBAR MAIS COMPACTA */
 .lui-sidebar{
-  width:110px;
+  width:140px;
   border-right:1px solid var(--glass-border);
-  padding:6px;
+  padding:10px;
   display:flex;
   flex-direction:column;
-  gap:4px;
-  flex-shrink:0;
-  overflow-y:auto;
-  background:rgba(15,17,20,0.4);
+  gap:8px;
 }
 
 .sideBtn{
-  background:rgba(255,255,255,0.05);
+  background:rgba(255,255,255,0.06);
   border:none;
-  padding:8px 6px;
-  border-radius:8px;
+  padding:12px;
+  border-radius:12px;
   cursor:pointer;
   display:flex;
   align-items:center;
-  gap:6px;
+  gap:10px;
   color:#cdd6dc;
   line-height:1;
-  font-size:10px;
-  font-weight:500;
-  transition:all 0.2s;
-  min-height:32px;
+  font-size:12px;
 }
 
 .sideBtn svg{
-  width:14px;
-  height:14px;
+  width:18px;
+  height:18px;
   stroke:currentColor;
   flex-shrink:0;
 }
 
 .sideBtn.active,
 .sideBtn:hover{
-  background:rgba(255,255,255,0.18);
+  background:rgba(255,255,255,0.22);
   color:#fff;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
-}
-
-.sideBtn.active svg{
-  stroke:#6fb3ff;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
 }
 
 .lui-content{
@@ -3256,78 +3170,71 @@ style.innerHTML = `
 .tabScroll{
   flex:1;
   overflow-y:auto;
-  padding:12px;
+  padding:16px;
   height:100%;
 }
 
 label{
-  font-size:11px;
-  margin-top:2px;
+  font-size:13px;
+  margin-top:4px;
   display:block;
   color:#cdd6dc;
-  font-weight:500;
 }
 
 input,select,textarea{
   width:100%;
-  margin-top:4px;
-  padding:6px 8px;
-  border-radius:8px;
+  margin-top:6px;
+  padding:10px;
+  border-radius:12px;
   border:1px solid var(--glass-border);
-  background:rgba(0,0,0,0.35);
+  background:rgba(0,0,0,0.45);
   color:#fff;
   outline:none;
-  font-size:11px;
-  font-family:inherit;
+  font-size:13px;
 }
 
 input:focus, select:focus, textarea:focus {
-  border-color: rgba(100, 160, 255, 0.6);
-  box-shadow: 0 0 0 2px rgba(100, 160, 255, 0.15);
+  border-color: rgba(100, 160, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(100, 160, 255, 0.1);
 }
 
-textarea{
-  min-height:60px;
-  resize:vertical;
-}
+textarea{ min-height:90px }
 
 .controlRow{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-top:8px;
+  margin-top:14px;
 }
 
 button{
-  margin-top:10px;
-  padding:8px;
+  margin-top:16px;
+  padding:12px;
   width:100%;
-  border-radius:8px;
+  border-radius:14px;
   border:none;
   background:linear-gradient(180deg,#2f3940,#232a2f);
   color:#fff;
   cursor:pointer;
-  font-size:11px;
+  font-size:13px;
   font-weight:500;
-  transition:all 0.2s;
 }
 
 button:hover {
   background:linear-gradient(180deg,#3a444b,#2d343a);
-  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-  transform:translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .divider{
   height:1px;
   background:var(--glass-border);
-  margin:8px 0;
+  margin:12px 0;
 }
 
 .switch{
   position:relative;
-  width:36px;
-  height:20px;
+  width:44px;
+  height:24px;
 }
 
 .switch input{ display:none }
@@ -3344,8 +3251,8 @@ button:hover {
 .slider::before{
   content:"";
   position:absolute;
-  width:14px;
-  height:14px;
+  width:18px;
+  height:18px;
   left:3px;
   top:2px;
   background:#fff;
@@ -3354,12 +3261,12 @@ button:hover {
 }
 
 .switch input:checked + .slider {
-  background: rgba(100, 160, 255, 0.8);
-  border-color: rgba(120, 180, 255, 0.9);
+  background: var(--accent-color);
+  border-color: var(--accent-hover);
 }
 
 .switch input:checked + .slider::before{
-  transform:translateX(16px);
+  transform:translateX(20px);
 }
 
 #nightDimmer{
@@ -3373,14 +3280,14 @@ button:hover {
 
 /* ========= CUSTOM SLIDER STYLES ========= */
 .slider-group {
-  margin-top: 6px;
-  margin-bottom: 6px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .slider-label {
-  font-size: 11px;
+  font-size: 13px;
   color: #cdd6dc;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -3389,15 +3296,15 @@ button:hover {
 .slider-container {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 2px;
+  gap: 12px;
+  margin-top: 4px;
 }
 
 .custom-slider {
   -webkit-appearance: none;
   appearance: none;
   flex: 1;
-  height: 5px;
+  height: 6px;
   border-radius: 3px;
   background: rgba(0,0,0,0.3);
   outline: none;
@@ -3408,157 +3315,208 @@ button:hover {
 .custom-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  background: rgba(100, 160, 255, 0.9);
+  background: var(--speed-color);
   cursor: pointer;
   border: 2px solid rgba(255,255,255,0.8);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   transition: all 0.2s ease;
 }
 
 .custom-slider::-webkit-slider-thumb:hover {
-  background: rgba(120, 180, 255, 0.95);
+  background: var(--speed-hover);
   transform: scale(1.1);
-  box-shadow: 0 2px 6px rgba(100,160,255,0.4);
+  box-shadow: 0 3px 8px rgba(100,160,255,0.4);
+}
+
+.custom-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--speed-color);
+  cursor: pointer;
+  border: 2px solid rgba(255,255,255,0.8);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+}
+
+.custom-slider::-moz-range-thumb:hover {
+  background: var(--speed-hover);
+  transform: scale(1.1);
+  box-shadow: 0 3px 8px rgba(100,160,255,0.4);
 }
 
 .custom-slider::-webkit-slider-runnable-track {
   width: 100%;
-  height: 5px;
+  height: 6px;
   border-radius: 3px;
-  background: linear-gradient(to right, rgba(100,160,255,0.2), rgba(100,160,255,0.9));
+  background: linear-gradient(to right, rgba(100,160,255,0.2), var(--speed-color));
   border: none;
 }
 
+.custom-slider::-moz-range-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to right, rgba(100,160,255,0.2), var(--speed-color));
+  border: none;
+}
+
+/* Predicts slider styling */
+#predictsWidth::-webkit-slider-thumb,
+#predictsAlpha::-webkit-slider-thumb,
+#predictsMaxLength::-webkit-slider-thumb {
+  background: var(--predicts-color);
+}
+
+#predictsWidth::-webkit-slider-thumb:hover,
+#predictsAlpha::-webkit-slider-thumb:hover,
+#predictsMaxLength::-webkit-slider-thumb:hover {
+  background: var(--predicts-hover);
+}
+
+#predictsWidth::-webkit-slider-runnable-track,
+#predictsAlpha::-webkit-slider-runnable-track,
+#predictsMaxLength::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, rgba(0,255,255,0.2), var(--predicts-color));
+}
+
 .slider-value {
-  min-width: 34px;
+  min-width: 40px;
   text-align: center;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   background: rgba(0,0,0,0.3);
-  padding: 3px 5px;
-  border-radius: 5px;
+  padding: 4px 8px;
+  border-radius: 8px;
   border: 1px solid var(--glass-border);
   color: #fff;
 }
 
 /* ========= X5 SPEEDER STYLES ========= */
 .speed-display {
-  font-size: 26px;
-  color: rgba(100, 160, 255, 0.9);
+  font-size: 32px;
+  color: var(--speed-color);
   font-weight: bold;
-  margin-bottom: 6px;
-  text-shadow: 0 0 10px rgba(100,160,255,0.5);
-  padding: 8px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 15px rgba(100,160,255,0.5);
+  padding: 10px;
   background: rgba(0,0,0,0.25);
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid rgba(100,160,255,0.3);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(5px);
 }
 
 .speed-preset-btn {
-  padding: 5px 3px;
-  font-size: 9px;
+  padding: 8px 4px;
+  font-size: 11px;
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.15);
   color: #fff;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
   font-weight: 500;
+  backdrop-filter: blur(5px);
 }
 
 .speed-preset-btn:hover {
   background: rgba(100,160,255,0.2);
   border-color: rgba(100,160,255,0.4);
   transform: scale(1.05);
-  box-shadow: 0 2px 6px rgba(100,160,255,0.3);
+  box-shadow: 0 2px 8px rgba(100,160,255,0.3);
 }
 
 .speed-preset-btn.active {
   background: rgba(100,160,255,0.3);
-  border-color: rgba(100,160,255,0.9);
-  box-shadow: 0 0 8px rgba(100,160,255,0.5);
+  border-color: var(--speed-color);
+  box-shadow: 0 0 12px rgba(100,160,255,0.5);
   color: #fff;
 }
 
 .speeder-reset-btn {
-  margin-top: 14px;
+  margin-top: 20px;
   background: linear-gradient(135deg, rgba(100,160,255,0.3), rgba(80,140,235,0.3));
   border: 1px solid rgba(100,160,255,0.4);
   color: #fff;
+  backdrop-filter: blur(5px);
 }
 
 .speeder-reset-btn:hover {
   background: linear-gradient(135deg, rgba(100,160,255,0.4), rgba(80,140,235,0.4));
   border-color: rgba(100,160,255,0.6);
-  box-shadow: 0 3px 12px rgba(100,160,255,0.3);
+  box-shadow: 0 4px 15px rgba(100,160,255,0.3);
 }
 
-/* Scrollbar styling */
+/* Scrollbar styling para tabs */
 .tabScroll::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 
 .tabScroll::-webkit-scrollbar-track {
   background: rgba(0,0,0,0.2);
-  border-radius: 2px;
-  margin: 3px 0;
+  border-radius: 3px;
+  margin: 4px 0;
 }
 
 .tabScroll::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.15);
-  border-radius: 2px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 3px;
 }
 
 .tabScroll::-webkit-scrollbar-thumb:hover {
-  background: rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.3);
 }
 
 /* Server info styling */
 .serverInfo {
   background: rgba(0,0,0,0.25);
-  border-radius: 7px;
-  padding: 8px;
-  margin-top: 8px;
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: 12px;
   border: 1px solid var(--glass-border);
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .hint {
-  font-size: 10px;
+  font-size: 12px;
   opacity: 0.8;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   line-height: 1.4;
 }
 
 /* Notifications */
 .lui-notif {
   position: fixed;
-  right: 16px;
-  bottom: 16px;
+  right: 20px;
+  bottom: 20px;
   background: rgba(12,14,16,0.86);
   backdrop-filter: blur(10px);
   color:#e6eef3;
-  padding:6px 10px;
-  border-radius:6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.45);
-  transform: translateY(8px);
+  padding:10px 14px;
+  border-radius:8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  transform: translateY(10px);
   opacity:0;
   transition:all .28s ease;
   z-index:100000;
-  font-size:11px;
+  font-size:13px;
   border: 1px solid var(--glass-border);
 }
 .lui-notif.show{ transform: translateY(0); opacity:1; }
 
-/* Predicts specific button */
-#predictsQuickToggle:hover {
-  background: linear-gradient(135deg, rgba(0,255,255,0.4), rgba(0,200,200,0.4));
-  border-color: rgba(0,255,255,0.6);
-  box-shadow: 0 3px 12px rgba(0,255,255,0.3);
+/* Responsive adjustments */
+@media (max-height: 600px) {
+  #customUI {
+    height: 380px;
+  }
+
+  .slider-group {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
 }
 
 /* Animation for slider values */
@@ -3571,356 +3529,367 @@ button:hover {
 .slider-value.changed {
   animation: valuePulse 0.3s ease;
   background: rgba(100,160,255,0.2);
-  border-color: rgba(100,160,255,0.9);
+  border-color: var(--speed-color);
+}
+
+/* Predicts specific button */
+#predictsQuickToggle:hover {
+  background: linear-gradient(135deg, rgba(0,255,255,0.4), rgba(0,200,200,0.4));
+  border-color: rgba(0,255,255,0.6);
+  box-shadow: 0 4px 15px rgba(0,255,255,0.3);
 }
 `;
 document.head.appendChild(style);
+      const dimmer = document.createElement("div");
+      dimmer.id = "nightDimmer";
+      document.body.appendChild(dimmer);
 
-const dimmer = document.createElement("div");
-dimmer.id = "nightDimmer";
-document.body.appendChild(dimmer);
+      if (window.lucide) lucide.createIcons();
 
-// Cria os ícones do Lucide após carregar o DOM
-setTimeout(() => {
-  if (window.lucide) {
-    lucide.createIcons();
-  }
-}, 100);
+      /* ========= DRAG ========= */
+      let dragging=false, ox=0, oy=0;
+      const header = ui.querySelector(".lui-header");
 
-/* ========= DRAG ========= */
-let dragging=false, ox=0, oy=0;
-const header = ui.querySelector(".lui-header");
+      header.addEventListener("mousedown", e=>{
+        dragging=true;
+        ox=e.clientX-ui.offsetLeft;
+        oy=e.clientY-ui.offsetTop;
+      });
 
-header.addEventListener("mousedown", e=>{
-  dragging=true;
-  ox=e.clientX-ui.offsetLeft;
-  oy=e.clientY-ui.offsetTop;
-});
+      document.addEventListener("mousemove", e=>{
+        if(dragging){
+          ui.style.left=e.clientX-ox+"px";
+          ui.style.top=e.clientY-oy+"px";
+        }
+      });
 
-document.addEventListener("mousemove", e=>{
-  if(dragging){
-    ui.style.left=e.clientX-ox+"px";
-    ui.style.top=e.clientY-oy+"px";
-  }
-});
+      document.addEventListener("mouseup", ()=>dragging=false);
 
-document.addEventListener("mouseup", ()=>dragging=false);
+      /* ========= TABS ========= */
+      ui.querySelectorAll(".sideBtn").forEach(btn=>{
+        btn.onclick=()=>{
+          ui.querySelectorAll(".sideBtn").forEach(b=>b.classList.remove("active"));
+          ui.querySelectorAll(".tabContent").forEach(c=>{
+            c.classList.remove("activeTab");
+            c.style.display="none";
+          });
 
-/* ========= TABS ========= */
-ui.querySelectorAll(".sideBtn").forEach(btn=>{
-  btn.onclick=()=>{
-    ui.querySelectorAll(".sideBtn").forEach(b=>b.classList.remove("active"));
-    ui.querySelectorAll(".tabContent").forEach(c=>{
-      c.classList.remove("activeTab");
-      c.style.display="none";
-    });
+          btn.classList.add("active");
 
-    btn.classList.add("active");
+          const tabId = "tab-" + btn.dataset.tab;
+          const tabContent = document.getElementById(tabId);
+          if(tabContent){
+            tabContent.classList.add("activeTab");
+            tabContent.style.display="flex";
 
-    const tabId = "tab-" + btn.dataset.tab;
-    const tabContent = document.getElementById(tabId);
-    if(tabContent){
-      tabContent.classList.add("activeTab");
-      tabContent.style.display="flex";
+            if (tabId === 'tab-speeder' && !window.X5SpeederInitialized) {
+              X5Speeder.init();
+              window.X5SpeederInitialized = true;
 
-      if (tabId === 'tab-speeder' && !window.X5SpeederInitialized) {
-        X5Speeder.init();
-        window.X5SpeederInitialized = true;
+              const currentSpeed = X5Speeder.state.speed;
+              document.getElementById('speeder-display').textContent = currentSpeed.toFixed(1) + 'x';
+              document.getElementById('speeder-slider-value').textContent = currentSpeed.toFixed(1) + 'x';
 
-        const currentSpeed = X5Speeder.state.speed;
-        document.getElementById('speeder-display').textContent = currentSpeed.toFixed(1) + 'x';
-        document.getElementById('speeder-slider-value').textContent = currentSpeed.toFixed(1) + 'x';
+              const sliderValue = Math.round(currentSpeed * 10);
+              document.getElementById('speeder-slider').value = sliderValue;
 
-        const sliderValue = Math.round(currentSpeed * 10);
-        document.getElementById('speeder-slider').value = sliderValue;
+              updatePresetButtons(currentSpeed);
 
-        updatePresetButtons(currentSpeed);
-
-        setupFPSMonitor();
-      }
-    }
-  };
-});
-
-/* ========= FUNÇÕES AUXILIARES ========= */
-function showUI(show) {
-  ui.style.display = show ? 'flex' : 'none';
-}
-
-function notify(title, msg){
-  const el = document.createElement('div');
-  el.className = 'lui-notif';
-  el.innerHTML = `<b>${title}</b><div style="opacity:0.85;font-size:10px;margin-top:3px">${msg}</div>`;
-  document.body.appendChild(el);
-  setTimeout(()=> el.classList.add('show'),20);
-  setTimeout(()=> {
-    el.classList.remove('show');
-    setTimeout(()=> el.remove(),300);
-  }, 3000);
-}
-
-function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
-
-function setupFPSMonitor() {
-  let fps = 0;
-  let frameCount = 0;
-  let lastTime = performance.now();
-  const fpsElement = document.getElementById('fps-counter');
-
-  if (!fpsElement) return;
-
-  function updateFPS() {
-      frameCount++;
-      const currentTime = performance.now();
-      const elapsed = currentTime - lastTime;
-
-      if (elapsed >= 500) {
-          fps = Math.round((frameCount * 1000) / elapsed);
-          frameCount = 0;
-          lastTime = currentTime;
-
-          fpsElement.textContent = `FPS: ${fps}`;
-
-          if (fps >= 100) {
-              fpsElement.style.color = '#7FFF00';
-          } else if (fps >= 60) {
-              fpsElement.style.color = '#FFD700';
-          } else if (fps >= 30) {
-              fpsElement.style.color = '#FF4500';
-          } else {
-              fpsElement.style.color = '#FF0000';
+              // Iniciar monitor de FPS
+              setupFPSMonitor();
+            }
           }
+        };
+      });
+
+      /* ========= FUNÇÕES AUXILIARES ========= */
+      function showUI(show) {
+        ui.style.display = show ? 'flex' : 'none';
       }
 
-      requestAnimationFrame(updateFPS);
-  }
-
-  requestAnimationFrame(updateFPS);
-}
-
-/* ========= REFERÊNCIAS ========= */
-const serverType = document.getElementById('serverType');
-const zoomToggle = document.getElementById('zoomToggle');
-const quickZoomToggle = document.getElementById('quickZoomToggle');
-const autoKeyInput = document.getElementById('autoKeyInput');
-const resetZoomBtn = document.getElementById('resetZoom');
-const quickNotes = document.getElementById('quickNotes');
-const nightModeToggle = document.getElementById('nightModeToggle');
-const unlockFpsToggle = document.getElementById('unlockFpsToggle');
-const customGroundToggle = document.getElementById('customGroundToggle');
-const customGroundColorPicker = document.getElementById('customGroundColorPicker');
-
-const aimToggle = document.getElementById('aimToggle');
-const aimSmooth = document.getElementById('aimSmooth');
-const aimSmoothValue = document.getElementById('aimSmoothValue');
-const aimDistance = document.getElementById('aimDistance');
-const aimDistanceValue = document.getElementById('aimDistanceValue');
-const aimSpeed = document.getElementById('aimSpeed');
-const aimSpeedValue = document.getElementById('aimSpeedValue');
-const aimForce = document.getElementById('aimForce');
-const aimForceValue = document.getElementById('aimForceValue');
-
-const predictsToggle = document.getElementById('predictsToggle');
-const predictsWidth = document.getElementById('predictsWidth');
-const predictsWidthValue = document.getElementById('predictsWidthValue');
-const predictsAlpha = document.getElementById('predictsAlpha');
-const predictsAlphaValue = document.getElementById('predictsAlphaValue');
-const predictsMaxLength = document.getElementById('predictsMaxLength');
-const predictsMaxLengthValue = document.getElementById('predictsMaxLengthValue');
-const predictsColorPicker = document.getElementById('predictsColorPicker');
-const predictsGradientToggle = document.getElementById('predictsGradientToggle');
-const predictsDashedToggle = document.getElementById('predictsDashedToggle');
-const predictsResetOrigin = document.getElementById('predictsResetOrigin');
-const predictsQuickToggle = document.getElementById('predictsQuickToggle');
-
-/* ========= RESTAURAR VALORES SALVOS ========= */
-try {
-  serverType.value = localStorage.getItem('server_type') || 'Normal';
-  window.ismobile = serverType.value === 'Mobile';
-  zoomToggle.checked = (localStorage.getItem('zoom_enabled') === '1');
-  quickZoomToggle.checked = (localStorage.getItem('quickzoom_enabled') === '1');
-  autoKeyInput.value = (localStorage.getItem('auto_key') || 'T').toUpperCase();
-  quickNotes.value = localStorage.getItem('quick_notes') || '';
-  nightModeToggle.checked = (localStorage.getItem('night_mode') === '1');
-  unlockFpsToggle.checked = (localStorage.getItem('unlock_fps') === '1');
-
-  customGroundEnabled = localStorage.getItem('customground_enabled') === '1';
-  customGroundToggle.checked = customGroundEnabled;
-  const savedColor = localStorage.getItem('customground_color') || '#000000';
-  customGroundColorPicker.value = savedColor;
-  customGroundColorValue = hexToRgb(savedColor);
-
-  aimEnabled = localStorage.getItem('aim_enabled') === '1';
-  aimToggle.checked = aimEnabled;
-  AIM_SMOOTH = parseInt(localStorage.getItem('aim_smooth') || '8');
-  aimSmooth.value = AIM_SMOOTH;
-  aimSmoothValue.textContent = AIM_SMOOTH;
-  AIM_MAX_DISTANCE = parseInt(localStorage.getItem('aim_distance') || '1200');
-  aimDistance.value = AIM_MAX_DISTANCE;
-  aimDistanceValue.textContent = AIM_MAX_DISTANCE;
-  AIM_INTERVAL = parseInt(localStorage.getItem('aim_speed') || '40');
-  aimSpeed.value = AIM_INTERVAL;
-  aimSpeedValue.textContent = AIM_INTERVAL;
-  AIM_FORCE = parseInt(localStorage.getItem('aim_force') || '120');
-  aimForce.value = AIM_FORCE;
-  aimForceValue.textContent = AIM_FORCE;
-
-  const predictsEnabled = localStorage.getItem('predicts_enabled') === '1';
-  predictsToggle.checked = predictsEnabled;
-  if (window.PredictsSystem) {
-    window.PredictsSystem.setEnabled(predictsEnabled);
-  }
-
-  const predictsWidthVal = parseInt(localStorage.getItem('predicts_width') || '3');
-  predictsWidth.value = predictsWidthVal;
-  predictsWidthValue.textContent = predictsWidthVal;
-  if (window.PredictsSystem) {
-    window.PredictsSystem.setLineWidth(predictsWidthVal);
-  }
-
-  const predictsAlphaVal = parseFloat(localStorage.getItem('predicts_alpha') || '0.9');
-  predictsAlpha.value = Math.round(predictsAlphaVal * 100);
-  predictsAlphaValue.textContent = Math.round(predictsAlphaVal * 100) + '%';
-  if (window.PredictsSystem) {
-    window.PredictsSystem.setAlpha(predictsAlphaVal);
-  }
-
-  const predictsMaxLengthVal = parseInt(localStorage.getItem('predicts_maxLength') || '1200');
-  predictsMaxLength.value = predictsMaxLengthVal;
-  predictsMaxLengthValue.textContent = predictsMaxLengthVal;
-  if (window.PredictsSystem) {
-    window.PredictsSystem.setMaxLength(predictsMaxLengthVal);
-  }
-
-  const predictsColor = localStorage.getItem('predicts_color') || '#00ffff';
-  predictsColorPicker.value = predictsColor;
-  if (window.PredictsSystem) {
-    window.PredictsSystem.setColor(predictsColor);
-  }
-
-  const predictsGradient = localStorage.getItem('predicts_gradient') !== '0';
-  predictsGradientToggle.checked = predictsGradient;
-  if (window.PredictsSystem) {
-    window.PredictsSystem.setUseGradient(predictsGradient);
-  }
-
-  const predictsDashed = localStorage.getItem('predicts_dashed') === '1';
-  predictsDashedToggle.checked = predictsDashed;
-  if (window.PredictsSystem) {
-    window.PredictsSystem.setDashed(predictsDashed);
-  }
-
-  dimmer.style.display = nightModeToggle.checked ? "block" : "none";
-} catch(e){}
-
-/* ========= ESTADO ========= */
-let zoomEnabled = !!zoomToggle.checked;
-let quickZoomEnabled = !!quickZoomToggle.checked;
-let autoKey = (localStorage.getItem('auto_key') || 't').toLowerCase();
-let maxZoom = Number(localStorage.getItem('maxZoom')) || 600;
-let serverSwitchKey = 's';
-
-/* ========= updateScale safe ========= */
-function updateScaleSafe(value){
-  const v = clamp(Number(value)|0, 300, 5000);
-  const mod = (typeof UNITY === 'function') ? UNITY() : (window.UNITY ? UNITY() : null);
-  if(!mod){ return false; }
-  if (!window.index || window.index === 0) return false;
-  try {
-    mod.HEAP32[window.index >> 2] = v;
-    localStorage.setItem('maxZoom', String(v));
-    return true;
-  }
-  catch(err){ return false; }
-}
-
-/* ========= SERVER SELECT ========= */
-function switchServer() {
-  const currentValue = serverType.value;
-  const newValue = currentValue === 'Normal' ? 'Mobile' : 'Normal';
-  serverType.value = newValue;
-
-  localStorage.setItem('server_type', newValue);
-  window.ismobile = newValue === 'Mobile';
-  notify('Servidor', `Trocado para ${newValue === 'Normal' ? 'PC' : 'Mobile'}`);
-
-  try{
-    reconnect();
-    setTimeout(() => {
-      if (wsinstances.master && wsinstances.master.readyState === WebSocket.CLOSED) {
-        location.reload();
+      function notify(title, msg){
+        const el = document.createElement('div');
+        el.className = 'lui-notif';
+        el.innerHTML = `<b>${title}</b><div style="opacity:0.85;font-size:12px;margin-top:4px">${msg}</div>`;
+        document.body.appendChild(el);
+        setTimeout(()=> el.classList.add('show'),20);
+        setTimeout(()=> {
+          el.classList.remove('show');
+          setTimeout(()=> el.remove(),300);
+        }, 3000);
       }
-    }, 1000);
-  } catch(e){}
-}
 
-serverType.addEventListener('change', e=>{
-  const val = e.target.value;
-  localStorage.setItem('server_type', val);
-  window.ismobile = val === 'Mobile';
-  notify('Servidor', `Modo ${val === 'Normal' ? 'PC' : 'Mobile'}`);
-  try{ reconnect(); } catch(e){}
-});
+      function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
 
-/* ========= TOGGLES ========= */
-zoomToggle.addEventListener('change', e=>{
-  zoomEnabled = e.target.checked;
-  localStorage.setItem('zoom_enabled', zoomEnabled ? '1' : '0');
-  notify('Zoom automático', zoomEnabled ? 'Ativado' : 'Desativado');
-});
+      // Função de monitoramento de FPS
+      function setupFPSMonitor() {
+        let fps = 0;
+        let frameCount = 0;
+        let lastTime = performance.now();
+        const fpsElement = document.getElementById('fps-counter');
 
-quickZoomToggle.addEventListener('change', e=>{
-  quickZoomEnabled = e.target.checked;
-  localStorage.setItem('quickzoom_enabled', quickZoomEnabled ? '1' : '0');
-  notify('Atalhos zoom', quickZoomEnabled ? 'Ativados' : 'Desativados');
-});
+        if (!fpsElement) return;
 
-nightModeToggle.addEventListener('change', e=>{
-  const enabled = e.target.checked;
-  localStorage.setItem('night_mode', enabled ? '1' : '0');
-  dimmer.style.display = enabled ? "block" : "none";
-  notify('Night Mode', enabled ? 'Ativado' : 'Desativado');
-});
+        function updateFPS() {
+            frameCount++;
+            const currentTime = performance.now();
+            const elapsed = currentTime - lastTime;
 
-unlockFpsToggle.addEventListener('change', e=>{
-  const enabled = e.target.checked;
-  localStorage.setItem('unlock_fps', enabled ? '1' : '0');
-  if(enabled){
-    try {
-      const gameCanvas = document.getElementById('canvas');
-      if (gameCanvas) {
-        gameCanvas.style.willChange = 'transform';
+            if (elapsed >= 500) {
+                fps = Math.round((frameCount * 1000) / elapsed);
+                frameCount = 0;
+                lastTime = currentTime;
+
+                fpsElement.textContent = `FPS: ${fps}`;
+
+                if (fps >= 100) {
+                    fpsElement.style.color = '#7FFF00';
+                } else if (fps >= 60) {
+                    fpsElement.style.color = '#FFD700';
+                } else if (fps >= 30) {
+                    fpsElement.style.color = '#FF4500';
+                } else {
+                    fpsElement.style.color = '#FF0000';
+                }
+            }
+
+            requestAnimationFrame(updateFPS);
+        }
+
+        requestAnimationFrame(updateFPS);
       }
-      if (window.document.body) {
-        window.document.body.style.overflow = 'hidden';
+
+      /* ========= REFERÊNCIAS ========= */
+      const serverType = document.getElementById('serverType');
+      const zoomToggle = document.getElementById('zoomToggle');
+      const quickZoomToggle = document.getElementById('quickZoomToggle');
+      const autoKeyInput = document.getElementById('autoKeyInput');
+      const resetZoomBtn = document.getElementById('resetZoom');
+      const quickNotes = document.getElementById('quickNotes');
+      const nightModeToggle = document.getElementById('nightModeToggle');
+      const unlockFpsToggle = document.getElementById('unlockFpsToggle');
+      const customGroundToggle = document.getElementById('customGroundToggle');
+      const customGroundColorPicker = document.getElementById('customGroundColorPicker');
+
+      // AIM ASSIST CONTROLS
+      const aimToggle = document.getElementById('aimToggle');
+      const aimSmooth = document.getElementById('aimSmooth');
+      const aimSmoothValue = document.getElementById('aimSmoothValue');
+      const aimDistance = document.getElementById('aimDistance');
+      const aimDistanceValue = document.getElementById('aimDistanceValue');
+      const aimSpeed = document.getElementById('aimSpeed');
+      const aimSpeedValue = document.getElementById('aimSpeedValue');
+      const aimForce = document.getElementById('aimForce');
+      const aimForceValue = document.getElementById('aimForceValue');
+
+      // PREDICTS CONTROLS
+      const predictsToggle = document.getElementById('predictsToggle');
+      const predictsWidth = document.getElementById('predictsWidth');
+      const predictsWidthValue = document.getElementById('predictsWidthValue');
+      const predictsAlpha = document.getElementById('predictsAlpha');
+      const predictsAlphaValue = document.getElementById('predictsAlphaValue');
+      const predictsMaxLength = document.getElementById('predictsMaxLength');
+      const predictsMaxLengthValue = document.getElementById('predictsMaxLengthValue');
+      const predictsColorPicker = document.getElementById('predictsColorPicker');
+      const predictsGradientToggle = document.getElementById('predictsGradientToggle');
+      const predictsDashedToggle = document.getElementById('predictsDashedToggle');
+      const predictsResetOrigin = document.getElementById('predictsResetOrigin');
+      const predictsQuickToggle = document.getElementById('predictsQuickToggle');
+
+      /* ========= RESTAURAR VALORES SALVOS ========= */
+      try {
+        serverType.value = localStorage.getItem('server_type') || 'Normal';
+        window.ismobile = serverType.value === 'Mobile';
+        zoomToggle.checked = (localStorage.getItem('zoom_enabled') === '1');
+        quickZoomToggle.checked = (localStorage.getItem('quickzoom_enabled') === '1');
+        autoKeyInput.value = (localStorage.getItem('auto_key') || 'T').toUpperCase();
+        quickNotes.value = localStorage.getItem('quick_notes') || '';
+        nightModeToggle.checked = (localStorage.getItem('night_mode') === '1');
+        unlockFpsToggle.checked = (localStorage.getItem('unlock_fps') === '1');
+
+        customGroundEnabled = localStorage.getItem('customground_enabled') === '1';
+        customGroundToggle.checked = customGroundEnabled;
+        const savedColor = localStorage.getItem('customground_color') || '#000000';
+        customGroundColorPicker.value = savedColor;
+        customGroundColorValue = hexToRgb(savedColor);
+
+        aimEnabled = localStorage.getItem('aim_enabled') === '1';
+        aimToggle.checked = aimEnabled;
+        AIM_SMOOTH = parseInt(localStorage.getItem('aim_smooth') || '8');
+        aimSmooth.value = AIM_SMOOTH;
+        aimSmoothValue.textContent = AIM_SMOOTH;
+        AIM_MAX_DISTANCE = parseInt(localStorage.getItem('aim_distance') || '1200');
+        aimDistance.value = AIM_MAX_DISTANCE;
+        aimDistanceValue.textContent = AIM_MAX_DISTANCE;
+        AIM_INTERVAL = parseInt(localStorage.getItem('aim_speed') || '40');
+        aimSpeed.value = AIM_INTERVAL;
+        aimSpeedValue.textContent = AIM_INTERVAL;
+        AIM_FORCE = parseInt(localStorage.getItem('aim_force') || '120');
+        aimForce.value = AIM_FORCE;
+        aimForceValue.textContent = AIM_FORCE;
+
+        // Predicts settings
+        const predictsEnabled = localStorage.getItem('predicts_enabled') === '1';
+        predictsToggle.checked = predictsEnabled;
+        if (window.PredictsSystem) {
+          window.PredictsSystem.setEnabled(predictsEnabled);
+        }
+
+        const predictsWidthVal = parseInt(localStorage.getItem('predicts_width') || '3');
+        predictsWidth.value = predictsWidthVal;
+        predictsWidthValue.textContent = predictsWidthVal;
+        if (window.PredictsSystem) {
+          window.PredictsSystem.setLineWidth(predictsWidthVal);
+        }
+
+        const predictsAlphaVal = parseFloat(localStorage.getItem('predicts_alpha') || '0.9');
+        predictsAlpha.value = Math.round(predictsAlphaVal * 100);
+        predictsAlphaValue.textContent = Math.round(predictsAlphaVal * 100) + '%';
+        if (window.PredictsSystem) {
+          window.PredictsSystem.setAlpha(predictsAlphaVal);
+        }
+
+        const predictsMaxLengthVal = parseInt(localStorage.getItem('predicts_maxLength') || '1200');
+        predictsMaxLength.value = predictsMaxLengthVal;
+        predictsMaxLengthValue.textContent = predictsMaxLengthVal;
+        if (window.PredictsSystem) {
+          window.PredictsSystem.setMaxLength(predictsMaxLengthVal);
+        }
+
+        const predictsColor = localStorage.getItem('predicts_color') || '#00ffff';
+        predictsColorPicker.value = predictsColor;
+        if (window.PredictsSystem) {
+          window.PredictsSystem.setColor(predictsColor);
+        }
+
+        const predictsGradient = localStorage.getItem('predicts_gradient') !== '0';
+        predictsGradientToggle.checked = predictsGradient;
+        if (window.PredictsSystem) {
+          window.PredictsSystem.setUseGradient(predictsGradient);
+        }
+
+        const predictsDashed = localStorage.getItem('predicts_dashed') === '1';
+        predictsDashedToggle.checked = predictsDashed;
+        if (window.PredictsSystem) {
+          window.PredictsSystem.setDashed(predictsDashed);
+        }
+
+        dimmer.style.display = nightModeToggle.checked ? "block" : "none";
+      } catch(e){}
+
+      /* ========= ESTADO ========= */
+      let zoomEnabled = !!zoomToggle.checked;
+      let quickZoomEnabled = !!quickZoomToggle.checked;
+      let autoKey = (localStorage.getItem('auto_key') || 't').toLowerCase();
+      let maxZoom = Number(localStorage.getItem('maxZoom')) || 600;
+      let serverSwitchKey = 's';
+
+      /* ========= updateScale safe ========= */
+      function updateScaleSafe(value){
+        const v = clamp(Number(value)|0, 300, 5000);
+        const mod = (typeof UNITY === 'function') ? UNITY() : (window.UNITY ? UNITY() : null);
+        if(!mod){ return false; }
+        if (!window.index || window.index === 0) return false;
+        try {
+          mod.HEAP32[window.index >> 2] = v;
+          localStorage.setItem('maxZoom', String(v));
+          return true;
+        }
+        catch(err){ return false; }
       }
-    } catch (err) {
-      console.log('[Unlock FPS] Erro ao tentar desbloquear FPS:', err);
-    }
-    notify('Unlock FPS', 'Ativado - FPS ilimitado');
-  } else {
-    notify('Unlock FPS', 'Desativado');
-  }
-});
 
-customGroundToggle.addEventListener('change', e=>{
-  customGroundEnabled = e.target.checked;
-  localStorage.setItem('customground_enabled', customGroundEnabled ? '1' : '0');
-  notify('Custom Ground', customGroundEnabled ? 'Ativado' : 'Desativado');
-});
+      /* ========= SERVER SELECT ========= */
+      function switchServer() {
+        const currentValue = serverType.value;
+        const newValue = currentValue === 'Normal' ? 'Mobile' : 'Normal';
+        serverType.value = newValue;
 
-customGroundColorPicker.addEventListener('input', e=>{
-  customGroundColorValue = hexToRgb(e.target.value);
-  localStorage.setItem('customground_color', e.target.value);
-});
+        localStorage.setItem('server_type', newValue);
+        window.ismobile = newValue === 'Mobile';
+        notify('Servidor', `Trocado para ${newValue === 'Normal' ? 'PC' : 'Mobile'}`);
 
-/* ========= AIM ASSIST CONTROLS ========= */
-aimToggle.addEventListener('change', e=>{
-  aimEnabled = e.target.checked;
-  localStorage.setItem('aim_enabled', aimEnabled ? '1' : '0');
-  notify('Aim Assist', aimEnabled ? 'Ativado' : 'Desativado');
-});
+        try{
+          reconnect();
+          setTimeout(() => {
+            if (wsinstances.master && wsinstances.master.readyState === WebSocket.CLOSED) {
+              location.reload();
+            }
+          }, 1000);
+        } catch(e){}
+      }
 
+      serverType.addEventListener('change', e=>{
+        const val = e.target.value;
+        localStorage.setItem('server_type', val);
+        window.ismobile = val === 'Mobile';
+        notify('Servidor', `Modo ${val === 'Normal' ? 'PC' : 'Mobile'}`);
+        try{ reconnect(); } catch(e){}
+      });
+
+      /* ========= TOGGLES ========= */
+      zoomToggle.addEventListener('change', e=>{
+        zoomEnabled = e.target.checked;
+        localStorage.setItem('zoom_enabled', zoomEnabled ? '1' : '0');
+        notify('Zoom automático', zoomEnabled ? 'Ativado' : 'Desativado');
+      });
+
+      quickZoomToggle.addEventListener('change', e=>{
+        quickZoomEnabled = e.target.checked;
+        localStorage.setItem('quickzoom_enabled', quickZoomEnabled ? '1' : '0');
+        notify('Atalhos zoom', quickZoomEnabled ? 'Ativados' : 'Desativados');
+      });
+
+      nightModeToggle.addEventListener('change', e=>{
+        const enabled = e.target.checked;
+        localStorage.setItem('night_mode', enabled ? '1' : '0');
+        dimmer.style.display = enabled ? "block" : "none";
+        notify('Night Mode', enabled ? 'Ativado' : 'Desativado');
+      });
+
+      unlockFpsToggle.addEventListener('change', e=>{
+        const enabled = e.target.checked;
+        localStorage.setItem('unlock_fps', enabled ? '1' : '0');
+        if(enabled){
+          // Desativar limitação de FPS do jogo (se houver)
+          try {
+            const gameCanvas = document.getElementById('canvas');
+            if (gameCanvas) {
+              gameCanvas.style.willChange = 'transform';
+            }
+
+            if (window.document.body) {
+              window.document.body.style.overflow = 'hidden';
+            }
+          } catch (err) {
+            console.log('[Unlock FPS] Erro ao tentar desbloquear FPS:', err);
+          }
+
+          notify('Unlock FPS', 'Ativado - FPS ilimitado');
+        } else {
+          notify('Unlock FPS', 'Desativado');
+        }
+      });
+
+      /* ========= CUSTOM GROUND CONTROLS ========= */
+      customGroundToggle.addEventListener('change', e=>{
+        customGroundEnabled = e.target.checked;
+        localStorage.setItem('customground_enabled', customGroundEnabled ? '1' : '0');
+        notify('Custom Ground', customGroundEnabled ? 'Ativado' : 'Desativado');
+      });
+
+      customGroundColorPicker.addEventListener('input', e=>{
+        customGroundColorValue = hexToRgb(e.target.value);
+        localStorage.setItem('customground_color', e.target.value);
+      });
+
+      /* ========= AIM ASSIST CONTROLS ========= */
+      aimToggle.addEventListener('change', e=>{
+        aimEnabled = e.target.checked;
+        localStorage.setItem('aim_enabled', aimEnabled ? '1' : '0');
+        notify('Aim Assist', aimEnabled ? 'Ativado' : 'Desativado');
+      });
+
+      // Adicionar esta função para animar os valores quando mudam
 function animateValue(element) {
   element.classList.add('changed');
   setTimeout(() => {
@@ -3928,6 +3897,7 @@ function animateValue(element) {
   }, 300);
 }
 
+// Atualizar os event listeners dos sliders para incluir a animação
 aimSmooth.addEventListener('input', e=>{
   AIM_SMOOTH = parseInt(e.target.value);
   aimSmoothValue.textContent = AIM_SMOOTH;
@@ -3956,300 +3926,310 @@ aimForce.addEventListener('input', e=>{
   localStorage.setItem('aim_force', AIM_FORCE);
 });
 
-/* ========= PREDICTS CONTROLS ========= */
-predictsToggle.addEventListener('change', e=>{
-  const enabled = e.target.checked;
-  if (window.PredictsSystem) {
-    window.PredictsSystem.setEnabled(enabled);
-  }
-  localStorage.setItem('predicts_enabled', enabled ? '1' : '0');
-  notify('Predicts', enabled ? 'Ativado' : 'Desativado');
-});
+      /* ========= PREDICTS CONTROLS ========= */
+      predictsToggle.addEventListener('change', e=>{
+        const enabled = e.target.checked;
+        if (window.PredictsSystem) {
+          window.PredictsSystem.setEnabled(enabled);
+        }
+        localStorage.setItem('predicts_enabled', enabled ? '1' : '0');
+        notify('Predicts', enabled ? 'Ativado' : 'Desativado');
+      });
 
-predictsWidth.addEventListener('input', e=>{
-  const width = parseInt(e.target.value);
-  predictsWidthValue.textContent = width;
-  animateValue(predictsWidthValue);
-  if (window.PredictsSystem) {
-    window.PredictsSystem.setLineWidth(width);
-  }
-  localStorage.setItem('predicts_width', width);
-});
+      predictsWidth.addEventListener('input', e=>{
+        const width = parseInt(e.target.value);
+        predictsWidthValue.textContent = width;
+        animateValue(predictsWidthValue);
+        if (window.PredictsSystem) {
+          window.PredictsSystem.setLineWidth(width);
+        }
+        localStorage.setItem('predicts_width', width);
+      });
 
-predictsAlpha.addEventListener('input', e=>{
-  const alpha = parseInt(e.target.value) / 100;
-  predictsAlphaValue.textContent = e.target.value + '%';
-  animateValue(predictsAlphaValue);
-  if (window.PredictsSystem) {
-    window.PredictsSystem.setAlpha(alpha);
-  }
-  localStorage.setItem('predicts_alpha', alpha);
-});
+      predictsAlpha.addEventListener('input', e=>{
+        const alpha = parseInt(e.target.value) / 100;
+        predictsAlphaValue.textContent = e.target.value + '%';
+        animateValue(predictsAlphaValue);
+        if (window.PredictsSystem) {
+          window.PredictsSystem.setAlpha(alpha);
+        }
+        localStorage.setItem('predicts_alpha', alpha);
+      });
 
-predictsMaxLength.addEventListener('input', e=>{
-  const maxLength = parseInt(e.target.value);
-  predictsMaxLengthValue.textContent = maxLength;
-  animateValue(predictsMaxLengthValue);
-  if (window.PredictsSystem) {
-    window.PredictsSystem.setMaxLength(maxLength);
-  }
-  localStorage.setItem('predicts_maxLength', maxLength);
-});
+      predictsMaxLength.addEventListener('input', e=>{
+        const maxLength = parseInt(e.target.value);
+        predictsMaxLengthValue.textContent = maxLength;
+        animateValue(predictsMaxLengthValue);
+        if (window.PredictsSystem) {
+          window.PredictsSystem.setMaxLength(maxLength);
+        }
+        localStorage.setItem('predicts_maxLength', maxLength);
+      });
 
-predictsColorPicker.addEventListener('input', e=>{
-  const color = e.target.value;
-  if (window.PredictsSystem) {
-    window.PredictsSystem.setColor(color);
-  }
-  localStorage.setItem('predicts_color', color);
-});
+      predictsColorPicker.addEventListener('input', e=>{
+        const color = e.target.value;
+        if (window.PredictsSystem) {
+          window.PredictsSystem.setColor(color);
+        }
+        localStorage.setItem('predicts_color', color);
+      });
 
-predictsGradientToggle.addEventListener('change', e=>{
-  const useGradient = e.target.checked;
-  if (window.PredictsSystem) {
-    window.PredictsSystem.setUseGradient(useGradient);
-  }
-  localStorage.setItem('predicts_gradient', useGradient ? '1' : '0');
-});
+      predictsGradientToggle.addEventListener('change', e=>{
+        const useGradient = e.target.checked;
+        if (window.PredictsSystem) {
+          window.PredictsSystem.setUseGradient(useGradient);
+        }
+        localStorage.setItem('predicts_gradient', useGradient ? '1' : '0');
+      });
 
-predictsDashedToggle.addEventListener('change', e=>{
-  const dashed = e.target.checked;
-  if (window.PredictsSystem) {
-    window.PredictsSystem.setDashed(dashed);
-  }
-  localStorage.setItem('predicts_dashed', dashed ? '1' : '0');
-});
+      predictsDashedToggle.addEventListener('change', e=>{
+        const dashed = e.target.checked;
+        if (window.PredictsSystem) {
+          window.PredictsSystem.setDashed(dashed);
+        }
+        localStorage.setItem('predicts_dashed', dashed ? '1' : '0');
+      });
 
-predictsResetOrigin.addEventListener('click', ()=>{
-  if (window.PredictsSystem) {
-    window.PredictsSystem.resetOrigin();
-  }
-  notify('Predicts', 'Origem resetada para o centro');
-});
+      predictsResetOrigin.addEventListener('click', ()=>{
+        if (window.PredictsSystem) {
+          window.PredictsSystem.resetOrigin();
+        }
+        notify('Predicts', 'Origem resetada para o centro');
+      });
 
-predictsQuickToggle.addEventListener('click', ()=>{
-  if (window.PredictsSystem) {
-    const newEnabled = !window.PredictsSystem.config.enabled;
-    window.PredictsSystem.setEnabled(newEnabled);
-    predictsToggle.checked = newEnabled;
-    localStorage.setItem('predicts_enabled', newEnabled ? '1' : '0');
-    notify('Predicts', newEnabled ? 'Ativado (P)' : 'Desativado (P)');
-  }
-});
+      predictsQuickToggle.addEventListener('click', ()=>{
+        if (window.PredictsSystem) {
+          const newEnabled = !window.PredictsSystem.config.enabled;
+          window.PredictsSystem.setEnabled(newEnabled);
+          predictsToggle.checked = newEnabled;
+          localStorage.setItem('predicts_enabled', newEnabled ? '1' : '0');
+          notify('Predicts', newEnabled ? 'Ativado (P)' : 'Desativado (P)');
+        }
+      });
 
-/* ========= AUTO KEY INPUT ========= */
-autoKeyInput.addEventListener('keydown', e=>{
-  e.preventDefault();
-  const k = (e.key || '').toLowerCase();
-  if(!k) return;
-  autoKey = k;
-  autoKeyInput.value = k.toUpperCase();
-  localStorage.setItem('auto_key', autoKey);
-  notify('Keybind', 'AutoMode: ' + autoKey.toUpperCase());
-});
+      /* ========= AUTO KEY INPUT ========= */
+      autoKeyInput.addEventListener('keydown', e=>{
+        e.preventDefault();
+        const k = (e.key || '').toLowerCase();
+        if(!k) return;
+        autoKey = k;
+        autoKeyInput.value = k.toUpperCase();
+        localStorage.setItem('auto_key', autoKey);
+        notify('Keybind', 'AutoMode: ' + autoKey.toUpperCase());
+      });
 
-/* ========= NOTAS RÁPIDAS ========= */
-quickNotes.addEventListener('input', e=>{
-  localStorage.setItem('quick_notes', e.target.value);
-});
+      /* ========= NOTAS RÁPIDAS ========= */
+      quickNotes.addEventListener('input', e=>{
+        localStorage.setItem('quick_notes', e.target.value);
+      });
 
-/* ========= RESET ZOOM ========= */
-resetZoomBtn.addEventListener('click', ()=>{
-  maxZoom = DEFAULT_SCALE;
-  updateScaleSafe(DEFAULT_SCALE);
-  notify('Zoom', 'Resetado para ' + DEFAULT_SCALE);
-});
+      /* ========= RESET ZOOM ========= */
+      resetZoomBtn.addEventListener('click', ()=>{
+        maxZoom = DEFAULT_SCALE;
+        updateScaleSafe(DEFAULT_SCALE);
+        notify('Zoom', 'Resetado para ' + DEFAULT_SCALE);
+      });
 
-/* ========= WHEEL ZOOM ========= */
-window.addEventListener('wheel', e=>{
-  if(!zoomEnabled) return;
-  if(e.target && (e.target.closest && e.target.closest('#customUI'))) return;
-  e.preventDefault();
-  maxZoom = clamp(maxZoom + (e.deltaY > 0 ? 125 : -125), 300, 5000);
-  updateScaleSafe(maxZoom);
-}, { passive:false });
+      /* ========= WHEEL ZOOM ========= */
+      window.addEventListener('wheel', e=>{
+        if(!zoomEnabled) return;
+        if(e.target && (e.target.closest && e.target.closest('#customUI'))) return;
+        e.preventDefault();
+        maxZoom = clamp(maxZoom + (e.deltaY > 0 ? 125 : -125), 300, 5000);
+        updateScaleSafe(maxZoom);
+      }, { passive:false });
 
-/* ========= CONTEXTMENU QUICK ZOOM ========= */
-document.addEventListener('contextmenu', function(ev) {
-  if(!quickZoomEnabled) return true;
-  ev.preventDefault();
-  toggle_scale = !toggle_scale;
-  updateScaleSafe(toggle_scale ? 900 : DEFAULT_SCALE);
-  notify('Zoom', toggle_scale ? '900' : String(DEFAULT_SCALE));
-  return false;
-}, false);
+      /* ========= CONTEXTMENU QUICK ZOOM ========= */
+      document.addEventListener('contextmenu', function(ev) {
+        if(!quickZoomEnabled) return true;
+        ev.preventDefault();
+        toggle_scale = !toggle_scale;
+        updateScaleSafe(toggle_scale ? 900 : DEFAULT_SCALE);
+        notify('Zoom', toggle_scale ? '900' : String(DEFAULT_SCALE));
+        return false;
+      }, false);
 
-/* ========= X5 SPEEDER CONTROLS ========= */
-function updatePresetButtons(currentSpeed) {
-  document.querySelectorAll('.speed-preset-btn').forEach(btn => {
-    const presetSpeed = parseFloat(btn.dataset.speed);
-    if (Math.abs(presetSpeed - currentSpeed) < 0.05) {
-      btn.classList.add('active');
-    } else {
-      btn.classList.remove('active');
-    }
-  });
-}
-
-const speederSlider = document.getElementById('speeder-slider');
-if (speederSlider) {
-  speederSlider.addEventListener('input', (e) => {
-    const sliderValue = parseInt(e.target.value);
-    const actualSpeed = sliderValue / 10;
-
-    X5Speeder.updateSpeed(actualSpeed);
-
-    document.getElementById('speeder-display').textContent = actualSpeed.toFixed(1) + 'x';
-    document.getElementById('speeder-slider-value').textContent = actualSpeed.toFixed(1) + 'x';
-
-    updatePresetButtons(actualSpeed);
-
-    animateValue(document.getElementById('speeder-slider-value'));
-  });
-}
-
-document.querySelectorAll('.speed-preset-btn').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    const speed = parseFloat(e.target.dataset.speed);
-    X5Speeder.updateSpeed(speed);
-
-    document.getElementById('speeder-display').textContent = speed.toFixed(1) + 'x';
-    document.getElementById('speeder-slider-value').textContent = speed.toFixed(1) + 'x';
-
-    const sliderValue = Math.round(speed * 10);
-    document.getElementById('speeder-slider').value = sliderValue;
-
-    updatePresetButtons(speed);
-
-    animateValue(document.getElementById('speeder-slider-value'));
-    notify('X5 Speeder', `Velocidade: ${speed.toFixed(1)}x`);
-  });
-});
-
-const speederResetBtn = document.getElementById('speeder-reset');
-if (speederResetBtn) {
-  speederResetBtn.addEventListener('click', () => {
-    X5Speeder.resetSpeed();
-
-    document.getElementById('speeder-display').textContent = '1.0x';
-    document.getElementById('speeder-slider-value').textContent = '1.0x';
-    document.getElementById('speeder-slider').value = 10;
-
-    updatePresetButtons(1.0);
-
-    notify('X5 Speeder', 'Resetado para 1.0x');
-  });
-}
-
-/* ========= KEY HANDLERS ========= */
-document.addEventListener('keydown', function(e){
-  if(e.target && (e.target.id === 'autoKeyInput' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT')) return;
-
-  if(e.key === 'Tab'){
-    e.preventDefault();
-    showUI(ui.style.display === 'none');
-    return;
-  }
-
-  if(e.key && e.key.toLowerCase() === autoKey){
-    toggle_tocar = !toggle_tocar;
-    notify('AutoMode', toggle_tocar ? 'Ativado' : 'Desativado');
-  }
-
-  if(e.key && e.key.toLowerCase() === 's') {
-    e.preventDefault();
-    switchServer();
-    return;
-  }
-
-  if(quickZoomEnabled){
-    if(e.key === 'b'){
-      toggle_in = !toggle_in;
-      updateScaleSafe(toggle_in ? 450 : DEFAULT_SCALE);
-      notify('Zoom', toggle_in ? '450' : String(DEFAULT_SCALE));
-    }
-    if(e.key === 'n'){
-      updateScaleSafe(1500);
-      notify('Zoom', '1500');
-    }
-  }
-
-  if(e.key && e.key.toLowerCase() === 'p') {
-    e.preventDefault();
-    if (window.PredictsSystem) {
-      const newEnabled = !window.PredictsSystem.config.enabled;
-      window.PredictsSystem.setEnabled(newEnabled);
-      predictsToggle.checked = newEnabled;
-      localStorage.setItem('predicts_enabled', newEnabled ? '1' : '0');
-      notify('Predicts', newEnabled ? 'Ativado (P)' : 'Desativado (P)');
-    }
-    return;
-  }
-
-  if (window.PredictsSystem && window.PredictsSystem.config.enabled) {
-    if(e.key === '[') {
-      const newWidth = Math.max(1, window.PredictsSystem.config.lineWidth - 1);
-      window.PredictsSystem.setLineWidth(newWidth);
-      predictsWidth.value = newWidth;
-      predictsWidthValue.textContent = newWidth;
-      localStorage.setItem('predicts_width', newWidth);
-      notify('Predicts', `Espessura: ${newWidth}`);
-    }
-    if(e.key === ']') {
-      const newWidth = Math.min(20, window.PredictsSystem.config.lineWidth + 1);
-      window.PredictsSystem.setLineWidth(newWidth);
-      predictsWidth.value = newWidth;
-      predictsWidthValue.textContent = newWidth;
-      localStorage.setItem('predicts_width', newWidth);
-      notify('Predicts', `Espessura: ${newWidth}`);
-    }
-    if(e.key === '-') {
-      const newAlpha = Math.max(0.1, +(window.PredictsSystem.config.alpha - 0.1).toFixed(2));
-      window.PredictsSystem.setAlpha(newAlpha);
-      predictsAlpha.value = Math.round(newAlpha * 100);
-      predictsAlphaValue.textContent = Math.round(newAlpha * 100) + '%';
-      localStorage.setItem('predicts_alpha', newAlpha);
-      notify('Predicts', `Opacidade: ${Math.round(newAlpha * 100)}%`);
-    }
-    if(e.key === '+') {
-      const newAlpha = Math.min(1.0, +(window.PredictsSystem.config.alpha + 0.1).toFixed(2));
-      window.PredictsSystem.setAlpha(newAlpha);
-      predictsAlpha.value = Math.round(newAlpha * 100);
-      predictsAlphaValue.textContent = Math.round(newAlpha * 100) + '%';
-      localStorage.setItem('predicts_alpha', newAlpha);
-      notify('Predicts', `Opacidade: ${Math.round(newAlpha * 100)}%`);
-    }
-    if(e.key.toLowerCase() === 'g') {
-      const newGradient = !window.PredictsSystem.config.useGradient;
-      window.PredictsSystem.setUseGradient(newGradient);
-      predictsGradientToggle.checked = newGradient;
-      localStorage.setItem('predicts_gradient', newGradient ? '1' : '0');
-      notify('Predicts', newGradient ? 'Gradiente: Ativado' : 'Gradiente: Desativado');
-    }
-    if(e.key.toLowerCase() === 'd') {
-      const newDashed = !window.PredictsSystem.config.dashed;
-      window.PredictsSystem.setDashed(newDashed);
-      predictsDashedToggle.checked = newDashed;
-      localStorage.setItem('predicts_dashed', newDashed ? '1' : '0');
-      notify('Predicts', newDashed ? 'Tracejado: Ativado' : 'Tracejado: Desativado');
-    }
-    if(e.key.toLowerCase() === 'c') {
-      if (window.PredictsSystem) {
-        window.PredictsSystem.resetOrigin();
+      /* ========= X5 SPEEDER CONTROLS ========= */
+      function updatePresetButtons(currentSpeed) {
+        document.querySelectorAll('.speed-preset-btn').forEach(btn => {
+          const presetSpeed = parseFloat(btn.dataset.speed);
+          if (Math.abs(presetSpeed - currentSpeed) < 0.05) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
       }
-      notify('Predicts', 'Origem resetada para o centro');
-    }
-  }
-});
 
-/* ========= EXPORT ========= */
-window.LBS_UI = {
-  updateScaleSafe,
-  showUI: ()=>showUI(true),
-  hideUI: ()=>showUI(false),
-  switchServer
-};
-})();
+      // Speed slider
+      const speederSlider = document.getElementById('speeder-slider');
+      if (speederSlider) {
+        speederSlider.addEventListener('input', (e) => {
+          const sliderValue = parseInt(e.target.value);
+          const actualSpeed = sliderValue / 10;
+
+          X5Speeder.updateSpeed(actualSpeed);
+
+          document.getElementById('speeder-display').textContent = actualSpeed.toFixed(1) + 'x';
+          document.getElementById('speeder-slider-value').textContent = actualSpeed.toFixed(1) + 'x';
+
+          updatePresetButtons(actualSpeed);
+
+          animateValue(document.getElementById('speeder-slider-value'));
+        });
+      }
+
+      // Speed preset buttons
+      document.querySelectorAll('.speed-preset-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const speed = parseFloat(e.target.dataset.speed);
+          X5Speeder.updateSpeed(speed);
+
+          document.getElementById('speeder-display').textContent = speed.toFixed(1) + 'x';
+          document.getElementById('speeder-slider-value').textContent = speed.toFixed(1) + 'x';
+
+          const sliderValue = Math.round(speed * 10);
+          document.getElementById('speeder-slider').value = sliderValue;
+
+          updatePresetButtons(speed);
+
+          animateValue(document.getElementById('speeder-slider-value'));
+          notify('X5 Speeder', `Velocidade: ${speed.toFixed(1)}x`);
+        });
+      });
+
+      // Reset button
+      const speederResetBtn = document.getElementById('speeder-reset');
+      if (speederResetBtn) {
+        speederResetBtn.addEventListener('click', () => {
+          X5Speeder.resetSpeed();
+
+          document.getElementById('speeder-display').textContent = '1.0x';
+          document.getElementById('speeder-slider-value').textContent = '1.0x';
+          document.getElementById('speeder-slider').value = 10;
+
+          updatePresetButtons(1.0);
+
+          notify('X5 Speeder', 'Resetado para 1.0x');
+        });
+      }
+
+      /* ========= KEY HANDLERS ========= */
+      document.addEventListener('keydown', function(e){
+        if(e.target && (e.target.id === 'autoKeyInput' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT')) return;
+
+        // Tab para abrir/fechar UI
+        if(e.key === 'Tab'){
+          e.preventDefault();
+          showUI(ui.style.display === 'none');
+          return;
+        }
+
+        // Tecla AutoMode
+        if(e.key && e.key.toLowerCase() === autoKey){
+          toggle_tocar = !toggle_tocar;
+          notify('AutoMode', toggle_tocar ? 'Ativado' : 'Desativado');
+        }
+
+        // Tecla S para trocar server rapidamente
+        if(e.key && e.key.toLowerCase() === 's') {
+          e.preventDefault();
+          switchServer();
+          return;
+        }
+
+        // Atalhos de zoom rápido
+        if(quickZoomEnabled){
+          if(e.key === 'b'){
+            toggle_in = !toggle_in;
+            updateScaleSafe(toggle_in ? 450 : DEFAULT_SCALE);
+            notify('Zoom', toggle_in ? '450' : String(DEFAULT_SCALE));
+          }
+          if(e.key === 'n'){
+            updateScaleSafe(1500);
+            notify('Zoom', '1500');
+          }
+        }
+
+        // Tecla P para alternar Predicts rapidamente
+        if(e.key && e.key.toLowerCase() === 'p') {
+          e.preventDefault();
+          if (window.PredictsSystem) {
+            const newEnabled = !window.PredictsSystem.config.enabled;
+            window.PredictsSystem.setEnabled(newEnabled);
+            predictsToggle.checked = newEnabled;
+            localStorage.setItem('predicts_enabled', newEnabled ? '1' : '0');
+            notify('Predicts', newEnabled ? 'Ativado (P)' : 'Desativado (P)');
+          }
+          return;
+        }
+
+        // Ajustes rápidos do Predicts
+        if (window.PredictsSystem && window.PredictsSystem.config.enabled) {
+          if(e.key === '[') {
+            const newWidth = Math.max(1, window.PredictsSystem.config.lineWidth - 1);
+            window.PredictsSystem.setLineWidth(newWidth);
+            predictsWidth.value = newWidth;
+            predictsWidthValue.textContent = newWidth;
+            localStorage.setItem('predicts_width', newWidth);
+            notify('Predicts', `Espessura: ${newWidth}`);
+          }
+          if(e.key === ']') {
+            const newWidth = Math.min(20, window.PredictsSystem.config.lineWidth + 1);
+            window.PredictsSystem.setLineWidth(newWidth);
+            predictsWidth.value = newWidth;
+            predictsWidthValue.textContent = newWidth;
+            localStorage.setItem('predicts_width', newWidth);
+            notify('Predicts', `Espessura: ${newWidth}`);
+          }
+          if(e.key === '-') {
+            const newAlpha = Math.max(0.1, +(window.PredictsSystem.config.alpha - 0.1).toFixed(2));
+            window.PredictsSystem.setAlpha(newAlpha);
+            predictsAlpha.value = Math.round(newAlpha * 100);
+            predictsAlphaValue.textContent = Math.round(newAlpha * 100) + '%';
+            localStorage.setItem('predicts_alpha', newAlpha);
+            notify('Predicts', `Opacidade: ${Math.round(newAlpha * 100)}%`);
+          }
+          if(e.key === '+') {
+            const newAlpha = Math.min(1.0, +(window.PredictsSystem.config.alpha + 0.1).toFixed(2));
+            window.PredictsSystem.setAlpha(newAlpha);
+            predictsAlpha.value = Math.round(newAlpha * 100);
+            predictsAlphaValue.textContent = Math.round(newAlpha * 100) + '%';
+            localStorage.setItem('predicts_alpha', newAlpha);
+            notify('Predicts', `Opacidade: ${Math.round(newAlpha * 100)}%`);
+          }
+          if(e.key.toLowerCase() === 'g') {
+            const newGradient = !window.PredictsSystem.config.useGradient;
+            window.PredictsSystem.setUseGradient(newGradient);
+            predictsGradientToggle.checked = newGradient;
+            localStorage.setItem('predicts_gradient', newGradient ? '1' : '0');
+            notify('Predicts', newGradient ? 'Gradiente: Ativado' : 'Gradiente: Desativado');
+          }
+          if(e.key.toLowerCase() === 'd') {
+            const newDashed = !window.PredictsSystem.config.dashed;
+            window.PredictsSystem.setDashed(newDashed);
+            predictsDashedToggle.checked = newDashed;
+            localStorage.setItem('predicts_dashed', newDashed ? '1' : '0');
+            notify('Predicts', newDashed ? 'Tracejado: Ativado' : 'Tracejado: Desativado');
+          }
+          if(e.key.toLowerCase() === 'c') {
+            if (window.PredictsSystem) {
+              window.PredictsSystem.resetOrigin();
+            }
+            notify('Predicts', 'Origem resetada para o centro');
+          }
+        }
+      });
+
+      /* ========= EXPORT ========= */
+      window.LBS_UI = {
+        updateScaleSafe,
+        showUI: ()=>showUI(true),
+        hideUI: ()=>showUI(false),
+        switchServer
+      };
+
+    })();
 })();
 
 
