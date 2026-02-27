@@ -406,7 +406,7 @@ function extractUserDataFromPacket106(accountdata) {
     }
 
     function saveLogin() {
-        localStorage.setItem('BssK_mod1', JSON.stringify({
+        localStorage.setItem('BsssK_mod1', JSON.stringify({
             loggedIn: true,
             expiresAt: EXPIRATION_DATE.toISOString()
         }));
